@@ -1,10 +1,7 @@
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require('autoprefixer');
-// const postcssPresetEnv = require('postcss-preset-env');
-// const postcssImport = require('postcss-import');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");xs
 
 module.exports = {
   // entry: "./src/index.js",
