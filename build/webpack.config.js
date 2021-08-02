@@ -1,22 +1,23 @@
 const path = require("path");
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // entry: "./src/index.js",
-  mode: 'development',
+  mode: "development",
   entry: {
-    index: './src/index.js',
-    heroes: './src/partials/heroes-module.js',
+    index: "./src/index.js",
+    heroes: "./src/partials/heroes-module.js",
+    // slider: "./src/slider.js",
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "../dist"),
   },
   resolve: {
     fallback: {
-        "fs": false
+      fs: false,
     },
   },
   devtool: "source-map",
@@ -25,7 +26,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /(node_modules)/
+        exclude: /(node_modules)/,
       },
       { test: /\.handlebars/, loader: "handlebars-loader" },
       {
@@ -33,10 +34,8 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-              loader: "css-loader",
-              options: {
-                  
-              }
+            loader: "css-loader",
+            options: {},
           },
           {
             loader: "postcss-loader",
@@ -56,46 +55,46 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-                sourceMap: true
-            }
-          }
-        ]
-    },
-    {
-      test: /\.(jpg|png|gif)$/,
-      use: [
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: [
           {
-              loader: "file-loader",
-              options: {
-                  name: '[name].[ext]',
-                  outputPath: 'static/',
-                  useRelativePath: true,
-              }
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "static/",
+              useRelativePath: true,
+            },
           },
           {
-              loader: 'image-webpack-loader',
-              options: {
-                mozjpeg: {
-                  progressive: true,
-                  quality: 65
-                },
-                optipng: {
-                  enabled: true,
-                },
-                pngquant: {
-                  quality: '65-90',
-                  speed: 4
-                },
-                gifsicle: {
-                  interlaced: false,
-                },
-                webp: {
-                  quality: 75
-                }
-              }
-          }
-      ]
-      }
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+              optipng: {
+                enabled: true,
+              },
+              pngquant: {
+                quality: "65-90",
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -103,12 +102,12 @@ module.exports = {
     // postcssPresetEnv({ stage: 3 }),
     new webpack.LoaderOptionsPlugin({
       options: {
-        handlebarsLoader: {}
-      }
+        handlebarsLoader: {},
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: "[name]-styles.css",
-      chunkFilename: "[id].css"
+      filename: "[name]-style.css",
+      chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
       title: "My awesome service",
@@ -120,11 +119,11 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    open: true
+    open: true,
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
     },
   },
 };
