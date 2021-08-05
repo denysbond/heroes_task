@@ -1,6 +1,7 @@
 import Grid from "../grid.handlebars";
 import HeroesList from "../partials/heroes-list.handlebars";
 import axios from "axios";
+import NotFound from "../notFound.handlebars";
 
 const url = "https://api.opendota.com";
 const divGrid = document.createElement("div");
@@ -26,24 +27,13 @@ document.querySelector("#btn_grid").addEventListener("click", () => {
     let hero = Array.from(document.getElementsByClassName("hero"));
     console.log(hero);
 
-    // hero.classList.add("list");
     let gridBtn = document.querySelector(".grid_btn");
 
     gridBtn.addEventListener("click", updateContent);
-    // divGrid.classList.add("hide");
-
-    // hero.forEach((item) => {
-    //   grid.append(item);
-    // });
 
     function updateContent() {
       let gridText = document.querySelector(".grid_text");
       let inpValue = gridText.value;
-
-      // let takeHero = hero.filter((item) => item.innerText === inpValue);
-      // console.log(takeHero);
-      // grid.append(takeHero[0]);
-      // console.log(takeHero);
 
       let takeHero = [];
 
@@ -52,17 +42,25 @@ document.querySelector("#btn_grid").addEventListener("click", () => {
           takeHero.push(item);
         }
       });
-      console.log(takeHero);
-      grid.append(takeHero[0]);
+
+      if (takeHero.length == 0) {
+        grid.insertAdjacentHTML("afterbegin", NotFound());
+      } else if (takeHero.length > 0) {
+        grid.innerHTML = "";
+        grid.append(divGrid);
+        grid.append(takeHero[0]);
+      }
 
       gridBtn.disabled = true;
       divGrid.classList.add("hide");
+      let h = document.querySelector("h1");
 
       gridText.addEventListener("input", () => {
+        grid.innerHTML = "";
+        grid.append(divGrid);
         divGrid.classList.remove("hide");
         gridBtn.disabled = false;
         takeHero[0].remove();
-        console.log(takeHero);
       });
     }
   }
