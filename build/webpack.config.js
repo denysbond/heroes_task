@@ -9,7 +9,6 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     heroes: "./src/partials/heroes-module.js",
-    // slider: "./src/slider.js",
   },
   output: {
     filename: "[name].bundle.js",
