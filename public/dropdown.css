@@ -44,9 +44,9 @@ footer.is-active {
   background-color: #f2f2f2;
 }
 
-.hero {
+.drop {
   display: flex;
-  height: 80px;
+  height: 70px;
   justify-content: space-between;
   width: 258px;
 }

@@ -36,6 +36,7 @@ document.querySelector("#btn_dropdown").addEventListener("click", () => {
       createSelectItem.classList.add("select__item");
       createSelectItem.append(item);
       selectBody.append(createSelectItem);
+      item.classList.add("drop");
     });
 
     let selectItem = document.querySelectorAll(".select__item");
