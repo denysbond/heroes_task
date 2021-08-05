@@ -30,6 +30,7 @@ document.querySelector("#btn_dropdown").addEventListener("click", () => {
     let footer = document.querySelector("footer");
 
     selectHeader.addEventListener("click", selectToggle);
+
     hero.forEach((item) => {
       let createSelectItem = document.createElement("div");
       createSelectItem.classList.add("select__item");

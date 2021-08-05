@@ -11,6 +11,7 @@ body {
 }
 
 .slider {
+  margin-top: 70px;
   position: relative;
   transition: 500ms;
   width: calc(100% * 121);

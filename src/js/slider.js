@@ -26,6 +26,7 @@ document.querySelector("#btn_slider").addEventListener("click", () => {
     let hero = Array.from(document.getElementsByClassName("hero"));
 
     let viewport = document.getElementById("viewport").offsetWidth;
+    console.log(viewport);
 
     let btnNext = document.getElementById("next");
 

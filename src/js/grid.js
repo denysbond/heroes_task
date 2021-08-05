@@ -53,13 +53,13 @@ document.querySelector("#btn_grid").addEventListener("click", () => {
 
       gridBtn.disabled = true;
       divGrid.classList.add("hide");
-      let h = document.querySelector("h1");
 
       gridText.addEventListener("input", () => {
         grid.innerHTML = "";
         grid.append(divGrid);
         divGrid.classList.remove("hide");
         gridBtn.disabled = false;
+
         takeHero[0].remove();
       });
     }
